@@ -1,0 +1,56 @@
+.logInnerContainer {
+  background: rgba(29, 29, 29, 0.39);
+  border-radius: 10px;
+  margin-top: 30px;
+  padding-top: 4%;
+  height: 200px;
+  width: 50%;
+}
+
+.logInnerContainer .row {
+  padding: 0px 20px;
+}
+
+.logTwo_field {
+  display: flex;
+  justify-content: space-around;
+  padding: 2% 2% 2% 2%;
+}
+
+.logErrorMsg {
+  font-size: 15px;
+  color: white;
+  text-align: center;
+}
+
+.buttonWrap {
+  text-align: center;
+  padding: 10px;
+}
+
+.buttonWrap > button {
+  border-radius: 22px !important;
+  padding: 10px 30px !important;
+  font-size: 16px;
+}
+
+.logInput_field > small {
+  font-size: 11px;
+}
+
+.logInnerContainer .form-group > label {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #fff;
+}
+.logInnerContainer .form-group > input {
+  font-size: 14px;
+  font-family: sans-serif;
+  color: #666;
+}
+@media only screen and (min-width: 310px) and (max-width: 768px) {
+  .logInnerContainer {
+    height: 210px;
+    width: 100%;
+  }
+}

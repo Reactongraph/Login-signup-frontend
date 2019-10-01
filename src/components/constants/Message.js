@@ -1,0 +1,26 @@
+const Message = {
+  emptyField: 'Please Enter Value',
+  success: 'Success',
+  error: 'Error!',
+  authError: 'You are unauthorized user!',
+  commonError: 'Something went wrong!',
+  logout: 'Logout!',
+  added: type => `${type} has been added successfully.`,
+  addedError: type => `Error! ${type} not added. Please try again!`,
+  updated: type => `${type} has been updated successfully.`,
+  updatedError: type => `Error! ${type} not updated. Please try again!`,
+  delete: type => `${type} has been deleted successfully.`,
+  deletedError: type => `Error! ${type} not deleted. Please try again!`,
+  requiredField: field => `Please enter a ${field}.`,
+  selectRequired: field => `Please select a ${field}.`,
+  selectRequire: field => `Please select an ${field}.`,
+  validPassword: 'Password should be more than 6 characters.',
+  validMobile: 'Please enter a valid phone number',
+  emailRequired: 'Please enter an email address.',
+  WrongCredentials: 'These credentials do not match our records.',
+  validEmail: 'Please enter a valid email address.',
+  permission: 'Please logout and login again or contact your Administrator for assistance.',
+  orLogout: 'Something happened...please try to login again.',
+};
+
+export default Message;
