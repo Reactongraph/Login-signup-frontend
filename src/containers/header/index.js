@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import Logo from '../../assets/images/logo.jpeg';
+import { Navbar, Nav, Button, Image } from 'react-bootstrap';
 import './header.css';
 
 class Header extends React.Component {
@@ -25,7 +26,7 @@ class Header extends React.Component {
     return (
       <React.Fragment>
         <Navbar bg="dark" variant="dark" className="navWidth">
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Image src={Logo} className="logo_img" />
           <Nav className="mr-auto"></Nav>
           {localStorage.getItem('token') !== 'undefined' &&
           localStorage.getItem('token') ? (
