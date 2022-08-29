@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter, Switch, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from './publicRoutes';
 import { privateRoutes } from './privateRoutes';
 import Layout from '../common/layout';
@@ -19,24 +19,19 @@ const getCurrentRoutes = () => {
   }
 };
 
-const ProjectRoutes = props => {
+const ProjectRoutes = (props) => {
   const currentRoutes = getCurrentRoutes();
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
         <Layout>
-          <Switch>
+          <Routes>
             {currentRoutes.map((data, index) => {
               return (
-                <Route
-                  path={data.path}
-                  exact={data.exact}
-                  component={data.component}
-                  key={index}
-                />
+                <Route path={data.path} element={data.component} key={index} />
               );
             })}
-          </Switch>
+          </Routes>
         </Layout>
       </Suspense>
     </BrowserRouter>

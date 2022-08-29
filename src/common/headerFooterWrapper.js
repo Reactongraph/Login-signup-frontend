@@ -1,14 +1,12 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
-import Header from '../containers/header'
-// import Footer from '../container/Footer'
+
+import Header from '../containers/header';
 
 const HeaderFooterWrapper = (props) => (
   <div className="page_wrapper">
     <Header {...props} />
     {props.children}
-    {/* <Footer {...props} /> */}
   </div>
-)
+);
 
-export default withRouter(HeaderFooterWrapper)
+export default HeaderFooterWrapper;

@@ -1,11 +1,8 @@
 import React from 'react';
-import HeaderFooterWrapper from './headerFooterWrapper'
-import { BrowserRouter as Router } from 'react-router-dom';
+import HeaderFooterWrapper from './headerFooterWrapper';
 
 const Layout = (props) => (
-  <Router>
-    <HeaderFooterWrapper children={props.children} {...props} />
-  </Router>
-)
+  <HeaderFooterWrapper children={props.children} {...props} />
+);
 
 export default Layout;
