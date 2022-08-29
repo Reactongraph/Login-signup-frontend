@@ -1,69 +1,64 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import Logo from '../../assets/images/logo.jpeg';
+import { useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Button, Image } from 'react-bootstrap';
+import Logo from '../../assets/images/logo.jpeg';
 import './header.css';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const Header = (props) => {
+  const { dispatch } = props;
+  const navigate = useNavigate();
 
-  _handleRoute = route => {
-    const { history } = this.props;
-    history.push(route);
+  const _handleRoute = (route) => {
+    navigate(route);
   };
 
-  _handleLogout = () => {
-    const { dispatch, history } = this.props;
+  const _handleLogout = () => {
     localStorage.clear();
-    history.push('/');
+    navigate('/');
     dispatch({ type: 'RESET', payload: { type: 'LOGIN_RESET' } });
   };
 
-  render() {
-    return (
-      <React.Fragment>
-        <Navbar bg="dark" variant="dark" className="navWidth">
-          <Image src={Logo} className="logo_img" />
-          <Nav className="mr-auto"></Nav>
-          {localStorage.getItem('token') !== 'undefined' &&
-          localStorage.getItem('token') ? (
-            <div className="logoutWrap">
-              <h5>Hi {localStorage.getItem('email')}</h5>
-              <Button
-                variant="outline-info button"
-                onClick={() => this._handleLogout()}
-              >
-                Logout
-              </Button>
-            </div>
-          ) : (
-            <Fragment>
-              <Button
-                variant="outline-info button"
-                onClick={route => this._handleRoute('login')}
-              >
-                Login
-              </Button>
-              <Button
-                variant="outline-info button"
-                onClick={route => this._handleRoute('signup')}
-              >
-                Signup
-              </Button>
-            </Fragment>
-          )}
-        </Navbar>
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <React.Fragment>
+      <Navbar bg="dark" variant="dark" className="navWidth">
+        <Image src={Logo} className="logo_img" />
+        <Nav className="mr-auto"></Nav>
+        {localStorage.getItem('token') !== 'undefined' &&
+        localStorage.getItem('token') ? (
+          <div className="logoutWrap">
+            <h5>Hi {localStorage.getItem('email')}</h5>
+            <Button
+              variant="outline-info button"
+              onClick={() => _handleLogout()}
+            >
+              Logout
+            </Button>
+          </div>
+        ) : (
+          <Fragment>
+            <Button
+              variant="outline-info button"
+              onClick={() => _handleRoute('login')}
+            >
+              Login
+            </Button>
+            <Button
+              variant="outline-info button"
+              onClick={() => _handleRoute('signup')}
+            >
+              Signup
+            </Button>
+          </Fragment>
+        )}
+      </Navbar>
+    </React.Fragment>
+  );
+};
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    loginData: state.loginData
+    loginData: state.loginData,
   };
 };
 

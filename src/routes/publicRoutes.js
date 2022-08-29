@@ -8,27 +8,22 @@ const Profile = React.lazy(() => import('../containers/profile'));
 export const publicRoutes = [
   {
     path: '/',
-    exact: true,
-    component: App
+    component: <App />,
   },
   {
     path: '/login',
-    exact: true,
-    component: Login
+    component: <Login />,
   },
   {
     path: '/signup',
-    exact: true,
-    component: Signup
+    component: <Signup />,
   },
   {
     path: '/profile',
-    exact: true,
-    component: Profile
+    component: <Profile />,
   },
   {
     path: '*',
-    exact: true,
-    component: NotFound
-  }
+    component: <NotFound />,
+  },
 ];
